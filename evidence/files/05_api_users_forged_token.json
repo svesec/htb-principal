@@ -1,0 +1,93 @@
+{
+  "users": [
+    {
+      "lastLogin": "2025-12-28T09:15:00Z",
+      "active": true,
+      "role": "ROLE_ADMIN",
+      "note": "",
+      "username": "admin",
+      "email": "s.chen@principal-corp.local",
+      "displayName": "Sarah Chen",
+      "department": "IT Security",
+      "id": 1
+    },
+    {
+      "lastLogin": "2025-12-28T14:32:00Z",
+      "active": true,
+      "role": "deployer",
+      "note": "Service account for automated deployments via SSH certificate auth.",
+      "username": "svc-deploy",
+      "email": "svc-deploy@principal-corp.local",
+      "displayName": "Deploy Service",
+      "department": "DevOps",
+      "id": 2
+    },
+    {
+      "lastLogin": "2025-12-27T16:45:00Z",
+      "active": true,
+      "role": "ROLE_USER",
+      "note": "Team lead - backend services",
+      "username": "jthompson",
+      "email": "j.thompson@principal-corp.local",
+      "displayName": "James Thompson",
+      "department": "Engineering",
+      "id": 3
+    },
+    {
+      "lastLogin": "2025-12-28T08:20:00Z",
+      "active": true,
+      "role": "ROLE_USER",
+      "note": "Frontend developer",
+      "username": "amorales",
+      "email": "a.morales@principal-corp.local",
+      "displayName": "Ana Morales",
+      "department": "Engineering",
+      "id": 4
+    },
+    {
+      "lastLogin": "2025-12-26T11:30:00Z",
+      "active": true,
+      "role": "ROLE_MANAGER",
+      "note": "Operations manager",
+      "username": "bwright",
+      "email": "b.wright@principal-corp.local",
+      "displayName": "Benjamin Wright",
+      "department": "Operations",
+      "id": 5
+    },
+    {
+      "lastLogin": "2025-12-20T10:00:00Z",
+      "active": false,
+      "role": "ROLE_ADMIN",
+      "note": "Security analyst - on leave until Jan 6",
+      "username": "kkumar",
+      "email": "k.kumar@principal-corp.local",
+      "displayName": "Kavitha Kumar",
+      "department": "IT Security",
+      "id": 6
+    },
+    {
+      "lastLogin": "2025-12-28T13:10:00Z",
+      "active": true,
+      "role": "ROLE_USER",
+      "note": "QA engineer",
+      "username": "mwilson",
+      "email": "m.wilson@principal-corp.local",
+      "displayName": "Marcus Wilson",
+      "department": "QA",
+      "id": 7
+    },
+    {
+      "lastLogin": "2025-12-28T07:55:00Z",
+      "active": true,
+      "role": "ROLE_MANAGER",
+      "note": "Engineering director",
+      "username": "lzhang",
+      "email": "l.zhang@principal-corp.local",
+      "displayName": "Lisa Zhang",
+      "department": "Engineering",
+      "id": 8
+    }
+  ],
+  "total": 8
+}

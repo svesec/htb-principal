@@ -1,0 +1,117 @@
+# Nmap 7.95 scan initiated Tue May  5 11:36:53 2026 as: /usr/lib/nmap/nmap --privileged -sC -sV -p- -T4 -oA nmap/initial TARGET_IP
+Nmap scan report for TARGET_IP
+Host is up (0.17s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT     STATE SERVICE    VERSION
+22/tcp   open  ssh        OpenSSH 9.6p1 Ubuntu 3ubuntu13.14 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 b0:a0:ca:46:bc:c2:cd:7e:10:05:05:2a:b8:c9:48:91 (ECDSA)
+|_  256 e8:a4:9d:bf:c1:b6:2a:37:93:40:d0:78:00:f5:5f:d9 (ED25519)
+8080/tcp open  http-proxy Jetty
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-server-header: Jetty
+| http-title: Principal Internal Platform - Login
+|_Requested resource was /login
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.1 404 Not Found
+|     Date: Tue, 05 May 2026 08:45:20 GMT
+|     Server: Jetty
+|     X-Powered-By: pac4j-jwt/6.0.3
+|     Cache-Control: must-revalidate,no-cache,no-store
+|     Content-Type: application/json
+|     {"timestamp":"2026-05-05T08:45:20.073+00:00","status":404,"error":"Not Found","path":"/nice%20ports%2C/Tri%6Eity.txt%2ebak"}
+|   GetRequest: 
+|     HTTP/1.1 302 Found
+|     Date: Tue, 05 May 2026 08:45:18 GMT
+|     Server: Jetty
+|     X-Powered-By: pac4j-jwt/6.0.3
+|     Content-Language: en
+|     Location: /login
+|     Content-Length: 0
+|   HTTPOptions: 
+|     HTTP/1.1 200 OK
+|     Date: Tue, 05 May 2026 08:45:18 GMT
+|     Server: Jetty
+|     X-Powered-By: pac4j-jwt/6.0.3
+|     Allow: GET,HEAD,OPTIONS
+|     Accept-Patch: 
+|     Content-Length: 0
+|   RTSPRequest: 
+|     HTTP/1.1 505 HTTP Version Not Supported
+|     Date: Tue, 05 May 2026 08:45:19 GMT
+|     Cache-Control: must-revalidate,no-cache,no-store
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 349
+|     <html>
+|     <head>
+|     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>
+|     <title>Error 505 Unknown Version</title>
+|     </head>
+|     <body>
+|     <h2>HTTP ERROR 505 Unknown Version</h2>
+|     <table>
+|     <tr><th>URI:</th><td>/badMessage</td></tr>
+|     <tr><th>STATUS:</th><td>505</td></tr>
+|     <tr><th>MESSAGE:</th><td>Unknown Version</td></tr>
+|     </table>
+|     </body>
+|     </html>
+|   Socks5: 
+|     HTTP/1.1 400 Bad Request
+|     Date: Tue, 05 May 2026 08:45:20 GMT
+|     Cache-Control: must-revalidate,no-cache,no-store
+|     Content-Type: text/html;charset=iso-8859-1
+|     Content-Length: 382
+|     <html>
+|     <head>
+|     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>
+|     <title>Error 400 Illegal character CNTL=0x5</title>
+|     </head>
+|     <body>
+|     <h2>HTTP ERROR 400 Illegal character CNTL=0x5</h2>
+|     <table>
+|     <tr><th>URI:</th><td>/badMessage</td></tr>
+|     <tr><th>STATUS:</th><td>400</td></tr>
+|     <tr><th>MESSAGE:</th><td>Illegal character CNTL=0x5</td></tr>
+|     </table>
+|     </body>
+|_    </html>
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8080-TCP:V=7.95%I=7%D=5/5%Time=69F9AE1E%P=x86_64-pc-linux-gnu%r(Get
+SF:Request,A4,"HTTP/1\.1\x20302\x20Found\r\nDate:\x20Tue,\x2005\x20May\x20
+SF:2026\x2008:45:18\x20GMT\r\nServer:\x20Jetty\r\nX-Powered-By:\x20pac4j-j
+SF:wt/6\.0\.3\r\nContent-Language:\x20en\r\nLocation:\x20/login\r\nContent
+SF:-Length:\x200\r\n\r\n")%r(HTTPOptions,A2,"HTTP/1\.1\x20200\x20OK\r\nDat
+SF:e:\x20Tue,\x2005\x20May\x202026\x2008:45:18\x20GMT\r\nServer:\x20Jetty\
+SF:r\nX-Powered-By:\x20pac4j-jwt/6\.0\.3\r\nAllow:\x20GET,HEAD,OPTIONS\r\n
+SF:Accept-Patch:\x20\r\nContent-Length:\x200\r\n\r\n")%r(RTSPRequest,220,"
+SF:HTTP/1\.1\x20505\x20HTTP\x20Version\x20Not\x20Supported\r\nDate:\x20Tue
+SF:,\x2005\x20May\x202026\x2008:45:19\x20GMT\r\nCache-Control:\x20must-rev
+SF:alidate,no-cache,no-store\r\nContent-Type:\x20text/html;charset=iso-885
+SF:9-1\r\nContent-Length:\x20349\r\n\r\n<html>\n<head>\n<meta\x20http-equi
+SF:v=\"Content-Type\"\x20content=\"text/html;charset=ISO-8859-1\"/>\n<titl
+SF:e>Error\x20505\x20Unknown\x20Version</title>\n</head>\n<body>\n<h2>HTTP
+SF:\x20ERROR\x20505\x20Unknown\x20Version</h2>\n<table>\n<tr><th>URI:</th>
+SF:<td>/badMessage</td></tr>\n<tr><th>STATUS:</th><td>505</td></tr>\n<tr><
+SF:th>MESSAGE:</th><td>Unknown\x20Version</td></tr>\n</table>\n\n</body>\n
+SF:</html>\n")%r(FourOhFourRequest,13B,"HTTP/1\.1\x20404\x20Not\x20Found\r
+SF:\nDate:\x20Tue,\x2005\x20May\x202026\x2008:45:20\x20GMT\r\nServer:\x20J
+SF:etty\r\nX-Powered-By:\x20pac4j-jwt/6\.0\.3\r\nCache-Control:\x20must-re
+SF:validate,no-cache,no-store\r\nContent-Type:\x20application/json\r\n\r\n
+SF:{\"timestamp\":\"2026-05-05T08:45:20\.073\+00:00\",\"status\":404,\"err
+SF:or\":\"Not\x20Found\",\"path\":\"/nice%20ports%2C/Tri%6Eity\.txt%2ebak\
+SF:"}")%r(Socks5,232,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nDate:\x20Tue,\
+SF:x2005\x20May\x202026\x2008:45:20\x20GMT\r\nCache-Control:\x20must-reval
+SF:idate,no-cache,no-store\r\nContent-Type:\x20text/html;charset=iso-8859-
+SF:1\r\nContent-Length:\x20382\r\n\r\n<html>\n<head>\n<meta\x20http-equiv=
+SF:\"Content-Type\"\x20content=\"text/html;charset=ISO-8859-1\"/>\n<title>
+SF:Error\x20400\x20Illegal\x20character\x20CNTL=0x5</title>\n</head>\n<bod
+SF:y>\n<h2>HTTP\x20ERROR\x20400\x20Illegal\x20character\x20CNTL=0x5</h2>\n
+SF:<table>\n<tr><th>URI:</th><td>/badMessage</td></tr>\n<tr><th>STATUS:</t
+SF:h><td>400</td></tr>\n<tr><th>MESSAGE:</th><td>Illegal\x20character\x20C
+SF:NTL=0x5</td></tr>\n</table>\n\n</body>\n</html>\n");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue May  5 11:45:44 2026 -- 1 IP address (1 host up) scanned in 531.63 seconds
