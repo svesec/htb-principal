@@ -1,7 +1,6 @@
 # Principal - Security Assessment Report
-Security assessment of the Hack The Box machine Principal, focusing on JWT/JWE abuse, SSH certificate authentication, and privilege escalation.
 
-# Principal - Security Assessment Report
+Security assessment of the Hack The Box machine Principal, focusing on JWT/JWE abuse, SSH certificate authentication, and privilege escalation.
 
 ## Overview
 
@@ -13,13 +12,14 @@ The attack chain progressed from initial reconnaissance and web application anal
 
 ## Scope
 
-Item	                           Details
-Target	                         Principal
-Platform	                       Hack The Box
-Operating System	               Linux
-Assessment Type	                 Black Box Security Assessment
-Objective	                       Identify and validate security weaknesses leading to system compromise
-Out of Scope	                   Denial of Service (DoS), brute-force attacks, and attacks against external systems
+| Item             | Details                                                                            |
+| ---------------- | ---------------------------------------------------------------------------------- |
+| Target           | Principal                                                                          |
+| Platform         | Hack The Box                                                                       |
+| Operating System | Linux                                                                              |
+| Assessment Type  | Black Box Security Assessment                                                      |
+| Objective        | Identify and validate security weaknesses leading to system compromise             |
+| Out of Scope     | Denial of Service (DoS), brute-force attacks, and attacks against external systems |
 
 ## Methodology
 
@@ -27,16 +27,29 @@ The assessment followed a structured security testing methodology designed to id
 
 The testing process consisted of the following phases:
 
-Reconnaissance and service enumeration
-Attack surface analysis
-Authentication and authorization assessment
-Controlled exploitation
-Privilege escalation analysis
-Risk assessment and security recommendations
+1. Reconnaissance and service enumeration
+2. Attack surface analysis
+3. Authentication and authorization assessment
+4. Controlled exploitation
+5. Privilege escalation analysis
+6. Risk assessment and security recommendations
 
 Each finding was validated through controlled testing and supported by technical evidence collected during the assessment.
 
 ## Reconnaissance
+
+Initial reconnaissance identified two exposed services on the target system.
+
+| Port | Service | Version       |
+| ---- | ------- | ------------- |
+| 22   | SSH     | OpenSSH 9.6p1 |
+| 8080 | HTTP    | Jetty         |
+
+The HTTP service on port 8080 redirected users to a login interface identified as Principal Internal Platform. Additionally, HTTP response headers revealed the use of the pac4j-jwt framework, providing an early indication that authentication functionality was likely based on JWT technology.
+
+These findings established the initial attack surface and guided further analysis toward the web application and its authentication mechanisms.
+
+![Nmap Scan](evidence/screenshots/01_nmap_ports.png)
 
 ## Attack Surface Analysis
 
