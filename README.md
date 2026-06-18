@@ -53,6 +53,29 @@ These findings established the initial attack surface and guided further analysi
 
 ## Attack Surface Analysis
 
+The exposed web application presented a login interface identified as **Principal Internal Platform**. Initial interaction with the application revealed a modern JavaScript-based front-end communicating with multiple backend API endpoints.
+
+Analysis of the login functionality and client-side resources indicated that authentication was handled through token-based mechanisms. Further inspection of the application's JavaScript code exposed several internal API endpoints, including:
+
+* `/api/dashboard`
+* `/api/users`
+* `/api/settings`
+* `/api/auth/jwks`
+* `/api/auth/login`
+
+The presence of a publicly accessible JWKS endpoint and references to token validation logic suggested that the application's authentication model relied on JWT/JWE technology. This significantly narrowed the assessment focus toward authentication and authorization mechanisms.
+
+The following evidence illustrates the identified attack surface and the client-side disclosure of authentication-related functionality.
+
+![Login Page](evidence/screenshots/02_login_page.png)
+
+![Login Request](evidence/screenshots/03_login_request_burp.png)
+
+![Unauthorized API Access](evidence/screenshots/04_api_docs_unauthorized.png)
+
+![JavaScript Token Logic](evidence/screenshots/05_js_token_logic.png)
+
+
 ## JWT/JWE Assessment
 
 ## Initial Access
