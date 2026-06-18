@@ -140,8 +140,37 @@ This allowed direct SSH authentication as the root user, resulting in full compr
 
 ![Root Identity Verification](evidence/screenshots/18_root_identity_verification.png)
 
-
 ## Findings
+
+### Finding 1 - Improper JWT/JWE Trust Model
+
+**Severity:** High
+
+The application exposed authentication-related functionality through publicly accessible resources and accepted a crafted token containing elevated privileges. Successful token abuse resulted in unauthorized administrative access to protected API endpoints.
+
+**Impact**
+
+An attacker could obtain administrative visibility into sensitive application data and configuration details, significantly increasing the attack surface and enabling further compromise.
+
+### Finding 2 - Sensitive Information Disclosure
+
+**Severity:** High
+
+Administrative API functionality exposed operational information related to SSH certificate authentication, deployment accounts, and certificate authority infrastructure.
+
+**Impact**
+
+Disclosure of security-sensitive configuration information enabled the identification of privileged authentication mechanisms and directly contributed to successful host compromise.
+
+### Finding 3 - Insecure SSH Certificate Authority Exposure
+
+**Severity:** Critical
+
+The compromised account had access to certificate authority material used to establish trust for SSH certificate authentication.
+
+**Impact**
+
+An attacker with access to the affected account could issue valid certificates for arbitrary principals, including root, resulting in complete system compromise.
 
 ## Security Recommendations
 
