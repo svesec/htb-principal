@@ -200,3 +200,10 @@ An attacker with access to the affected account could issue valid certificates f
 * Implement alerting for privileged authentication activity and unexpected privilege escalation attempts.
 
 ## Conclusion
+The assessment demonstrated a complete attack path from initial reconnaissance to full system compromise.
+
+Analysis of the exposed web application identified weaknesses in the authentication and authorization model, allowing unauthorized administrative access through a crafted token. Administrative functionality further exposed sensitive configuration data related to SSH certificate-based authentication.
+
+The disclosed information enabled authenticated access as a service account and ultimately led to compromise of the SSH certificate authority trust model. By issuing a valid certificate for the root principal, full control of the target system was obtained.
+
+The findings highlight the importance of secure token validation, protection of sensitive configuration data, and strict control of certificate authority infrastructure.
