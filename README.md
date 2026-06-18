@@ -105,6 +105,8 @@ The administrative access obtained through the forged token exposed sensitive op
 
 Review of the disclosed configuration data identified references to a deployment service account (`svc-deploy`) and SSH certificate-based authentication mechanisms used for automation and administrative tasks.
 
+The disclosed information provided visibility into the deployment workflow and revealed the account used for certificate-based administrative operations.
+
 Using the information obtained from the administrative API endpoints, authenticated access to the target system was established as the `svc-deploy` user.
 
 Once access was obtained, system enumeration confirmed the security context of the compromised account and provided visibility into the user's home directory and available resources.
