@@ -78,6 +78,27 @@ The following evidence illustrates the identified attack surface and the client-
 
 ## JWT/JWE Assessment
 
+Analysis of the client-side application revealed references to a publicly accessible JSON Web Key Set (JWKS) endpoint located at `/api/auth/jwks`. The endpoint exposed the public RSA key used by the application for token-related operations.
+
+Further review of the JavaScript authentication logic revealed references to JWT/JWE processing and role-based authorization controls. The application relied on token claims to determine access privileges for administrative functionality.
+
+A custom Python script was developed to interact with the exposed JWKS data and generate a crafted token containing elevated privileges. The resulting token successfully granted access to administrative API functionality.
+
+Successful access to `/api/users` confirmed that the forged token was accepted by the application and that administrative privileges had been obtained.
+
+Additional analysis of `/api/settings` revealed sensitive operational information related to SSH certificate-based authentication, including references to the SSH certificate authority configuration used within the environment. This information ultimately enabled the next phase of the attack.
+
+![JWKS Endpoint](evidence/screenshots/06_jwks_endpoint.png)
+
+![Python Environment](evidence/screenshots/07_python_environment_ready.png)
+
+![Administrative API Access](evidence/screenshots/08_forged_admin_token_api_users.png)
+
+![Sensitive Configuration Disclosure - Part 1](evidence/screenshots/09_api_settings_sensitive_data_part1.png)
+
+![Sensitive Configuration Disclosure - Part 2](evidence/screenshots/09_api_settings_sensitive_data_part2.png)
+
+
 ## Initial Access
 
 ## Privilege Escalation
