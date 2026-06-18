@@ -101,6 +101,23 @@ Additional analysis of `/api/settings` revealed sensitive operational informatio
 
 ## Initial Access
 
+The administrative access obtained through the forged token exposed sensitive operational information related to the organization's SSH certificate authentication infrastructure.
+
+Review of the disclosed configuration data identified references to a deployment service account (`svc-deploy`) and SSH certificate-based authentication mechanisms used for automation and administrative tasks.
+
+Using the information obtained from the administrative API endpoints, authenticated access to the target system was established as the `svc-deploy` user.
+
+Once access was obtained, system enumeration confirmed the security context of the compromised account and provided visibility into the user's home directory and available resources.
+
+The obtained foothold provided access to additional configuration files and SSH certificate authority information, which became the foundation for the subsequent privilege escalation phase.
+
+![SSH Login as svc-deploy](evidence/screenshots/10_ssh_login_svc_deploy.png)
+
+![Identity Verification](evidence/screenshots/11_foothold_identity_verification.png)
+
+![Home Directory Enumeration](evidence/screenshots/12_home_directory_listing.png)
+
+
 ## Privilege Escalation
 
 ## Findings
