@@ -120,6 +120,27 @@ The obtained foothold provided access to additional configuration files and SSH 
 
 ## Privilege Escalation
 
+Following the compromise of the `svc-deploy` account, local enumeration identified multiple files related to SSH certificate-based authentication.
+
+Review of the available documentation and configuration files revealed that the system trusted a dedicated SSH Certificate Authority (CA) for user authentication. Additional investigation confirmed that certificate issuance material was accessible from the compromised context.
+
+The SSH daemon configuration explicitly trusted certificates signed by the configured CA. As a result, possession of the CA signing key enabled the generation of valid certificates for arbitrary user principals.
+
+A new SSH key pair was generated and signed using the trusted CA. The resulting certificate was issued for the `root` principal and successfully accepted by the target system.
+
+This allowed direct SSH authentication as the root user, resulting in full compromise of the host.
+
+![SSH CA Documentation](evidence/screenshots/14_ssh_ca_readme.png)
+
+![Trusted CA Configuration](evidence/screenshots/15_trusted_user_ca_keys.png)
+
+![Application Configuration Review](evidence/screenshots/16_application_properties_db_credentials.png)
+
+![Root Access via SSH Certificate](evidence/screenshots/17_root_login_ssh_certificate.png)
+
+![Root Identity Verification](evidence/screenshots/18_root_identity_verification.png)
+
+
 ## Findings
 
 ## Security Recommendations
