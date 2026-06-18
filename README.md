@@ -174,4 +174,29 @@ An attacker with access to the affected account could issue valid certificates f
 
 ## Security Recommendations
 
+### Authentication and Authorization Controls
+
+* Implement strict validation of JWT/JWE trust relationships and ensure that administrative privileges cannot be obtained through client-controlled token manipulation.
+* Restrict access to authentication-related metadata and internal security mechanisms.
+* Apply the principle of least privilege to all application roles and service accounts.
+
+### Protection of Sensitive Configuration Data
+
+* Prevent exposure of operational and security-related configuration details through administrative interfaces.
+* Separate security configuration data from application management functionality.
+* Review all API responses for unintended information disclosure.
+
+### SSH Certificate Authority Security
+
+* Restrict access to SSH certificate authority material and signing infrastructure.
+* Store CA private keys in dedicated protected locations with strict access controls.
+* Regularly rotate CA keys and audit certificate issuance activity.
+* Limit the ability to issue certificates for privileged principals such as root.
+
+### Monitoring and Auditing
+
+* Monitor administrative API access for abnormal behavior.
+* Log and review certificate issuance events.
+* Implement alerting for privileged authentication activity and unexpected privilege escalation attempts.
+
 ## Conclusion
